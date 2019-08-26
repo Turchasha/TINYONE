@@ -1,0 +1,9 @@
+temp/
+*.bat
+
+# IntellijIdea files
+.idea/
+.DS_Store
+libs/
+node_modules/
+samples/

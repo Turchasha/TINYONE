@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: $font-main;
+    font-size: $font-size;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    transition: transform 0.25s;
+    background-color: $color-light;
+
+    &::before {
+        position: absolute;
+        z-index: -10;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 0;
+        content: "";
+        opacity: 0.85;
+        background-color: $color-primary;
+        transition: opacity 1s;
+
+        @include abs-position;
+    }
+
+    &.active {
+        overflow-y: hidden;
+        transition: transform 0.5s;
+        transform: translateX(-$navbar-mobile-width);
+
+        &::before {
+            height: 100vh;
+            opacity: 0.85;
+            z-index: 10;
+
+        }
+    }
+}
+
+a {
+    text-decoration: none;
+    color: $color-primary;
+    transition: color 0.5s;
+}
+
+.container {
+    display: grid;
+    max-width: $max-width;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: $gap;
+    padding-left: $gap;
+}
